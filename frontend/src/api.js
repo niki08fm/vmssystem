@@ -1,8 +1,9 @@
 import axios from 'axios';
 
 
-export const API_BASE_URL = "http://10.136.132.125:3000"; 
-export const PY_URL = "http://10.136.132.125:5000"; 
+ export const URL = "http://localhost:3000";
+export const PY_URL = "http://localhost:5000";
+
 
 const api = axios.create({
   baseURL: API_BASE_URL,
