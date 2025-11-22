@@ -8,13 +8,14 @@ const User = require('./models/User');
 const Visitor = require('./models/Visitor');
 
 const app = express();
-const JWT_SECRET = 'super_secret_key_change_this_in_production'; 
+const JWT_SECRET = '334231'; 
 
 app.use(cors({ origin: '*' }));
 app.use(express.json({ limit: '10mb' }));
 
 // --- DB CONNECTION ---
-mongoose.connect('URI')
+mongoose.connect('mongodb+srv://b02206370:Manu08fm.@cluster0.jhcep.mongodb.net/gms')
+
   .then(async () => {
     console.log("MongoDB Connected");
     const adminExists = await User.findOne({ username: 'admin' });
@@ -183,5 +184,9 @@ app.get('/api/guest/status/:code', async (req, res) => {
   if (visitor) res.json({ success: true, status: visitor.status });
   else res.json({ success: false });
 });
+
+app.get('/',(req,res) =>{
+  return "hello";
+})
 
 app.listen(3000, '0.0.0.0', () => console.log("Backend running on 3000"));
