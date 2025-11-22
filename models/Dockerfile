@@ -7,7 +7,7 @@ COPY requirements.txt .
 # Pillow fix for Python 3.8
 RUN sed -i 's/Pillow.*/Pillow<10/g' requirements.txt
 
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt
 
 COPY . .
 
